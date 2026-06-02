@@ -1,0 +1,27 @@
+.header {
+  padding: 22px 0;
+  background-color: var(--color-dark-2);
+  // backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-size: 28px;
+  letter-spacing: 2px;
+  user-select: none;
+}

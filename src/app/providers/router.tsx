@@ -15,7 +15,11 @@ const router = createBrowserRouter([
       },
       {
         path: ROUTES.GAMES,
-        element: <div>321321</div>,
+        element: <div>GAMES</div>,
+      },
+      {
+        path: ROUTES.FAVORITES,
+        element: <div>FAVORITES</div>,
       },
     ],
   },
