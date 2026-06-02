@@ -1,8 +1,7 @@
-:root {
-  --font-family-base: "Inter", sans-serif;
-}
-
 body {
+  background-color: var(--color-dark-1);
+  color: var(--color-white);
+
   font-family: var(--font-family-base);
   font-weight: 400;
   line-height: 1.28;

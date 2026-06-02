@@ -1,0 +1,17 @@
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  list-style-type: none;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+
+  li {
+    padding-inline: 16px;
+  }
+
+  &:hover {
+    color: var(--color-gray);
+  }
+}
