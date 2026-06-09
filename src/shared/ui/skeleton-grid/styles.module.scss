@@ -1,0 +1,47 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--skeleton-columns, 4), 1fr);
+  gap: 24px;
+  margin-top: 24px;
+  opacity: 0.8;
+}
+
+.card {
+  background: #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(90deg, #3a3a3a 25%, #4a4a4a 50%, #3a3a3a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.title {
+  height: 16px;
+  width: 80%;
+  margin: 12px 12px 8px;
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+.rating {
+  height: 12px;
+  width: 40%;
+  margin: 0 12px 12px;
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

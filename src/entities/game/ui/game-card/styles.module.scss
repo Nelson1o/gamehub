@@ -1,0 +1,48 @@
+.card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1f1f1f;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.content {
+  padding: 12px;
+  background: #2a2a2a;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #b0b0b0;
+}
+
+.rating {
+  font-weight: 600;
+  color: var(--color-yellow);
+}
+
+.date {
+  font-size: 12px;
+}

@@ -1,0 +1,25 @@
+.slider {
+  position: relative;
+
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s ease;
+  }
+
+  .barPagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+
+  &:hover {
+    .barPagination {
+      display: flex;
+    }
+  }
+}
