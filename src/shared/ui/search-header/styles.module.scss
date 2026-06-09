@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.title,
+.count {
+  font-size: 16px;
+  font-weight: 500;
+  word-break: break-word;
+  max-width: 70%;
+}

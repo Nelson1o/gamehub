@@ -1,5 +1,6 @@
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router";
 
+import { SearchPage } from "@/pages/search-page";
 import { ROUTES } from "@/shared/config";
 
 import { Layout } from "../layout";
@@ -11,7 +12,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate replace to={ROUTES.GAMES} />,
+
+        element: <div>HOME PAGE</div>,
+      },
+      {
+        path: ROUTES.SEARCH,
+        element: <SearchPage />,
       },
       {
         path: ROUTES.GAMES,
