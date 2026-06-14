@@ -1,0 +1,49 @@
+.hero {
+  text-align: center;
+  color: var(--color-white);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  padding: 120px 20px 60px;
+}
+
+.title {
+  font-size: 72px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 18px;
+  flex-wrap: wrap;
+}
+
+.metacritic {
+  background: #6c3;
+  padding: 6px 14px;
+  border-radius: 40px;
+  color: var(--color-dark-1);
+  font-weight: 700;
+}
+
+.metacriticLink {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.rating {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 14px;
+  border-radius: 40px;
+}
+
+.released {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 14px;
+  border-radius: 40px;
+}

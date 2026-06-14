@@ -30,6 +30,19 @@
   }
 }
 
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: color 0.2s ease;
+
+  &:hover {
+    h3 {
+      color: var(--color-yellow);
+    }
+  }
+}
+
 .footer {
   display: flex;
   justify-content: space-between;

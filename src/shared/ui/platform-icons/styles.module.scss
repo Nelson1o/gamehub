@@ -1,0 +1,15 @@
+.platforms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.platformIcon {
+  user-select: none;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}

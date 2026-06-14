@@ -1,11 +1,11 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 import { gamesApi } from "@/shared/api/games-api";
-import type { GamesResponse, SelectData } from "@/shared/types";
+import type { Game, GamesResponse, SelectData } from "@/shared/types";
 
 export const useInfiniteSearchGames = (query: string) => {
   return useInfiniteQuery<
-    GamesResponse,
+    GamesResponse<Game>,
     Error,
     SelectData,
     [string, string, string],

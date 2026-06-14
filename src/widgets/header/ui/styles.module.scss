@@ -6,6 +6,13 @@
   border-bottom: 1px solid var(--border-color);
 }
 
+.transparent {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: transparent;
+}
+
 .wrapper {
   display: flex;
   justify-content: space-between;
