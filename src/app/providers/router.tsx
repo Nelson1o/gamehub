@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 
+import { GamePage } from "@/pages/game";
 import { SearchPage } from "@/pages/search-page";
 import { ROUTES } from "@/shared/config";
 
@@ -12,7 +13,6 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-
         element: <div>HOME PAGE</div>,
       },
       {
@@ -22,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.GAMES,
         element: <div>GAMES</div>,
+      },
+      {
+        path: ROUTES.GAMES_DETAILS,
+        element: <GamePage />,
       },
       {
         path: ROUTES.FAVORITES,

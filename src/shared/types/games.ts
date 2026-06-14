@@ -1,4 +1,4 @@
-type Short_Screenshots = {
+export type Short_Screenshots = {
   id: number;
   image: string;
 };
@@ -12,9 +12,9 @@ export type Game = {
   short_screenshots: Short_Screenshots[];
 };
 
-export type GamesResponse = {
+export type GamesResponse<T> = {
   count: number;
-  results: Game[];
+  results: T[];
   next: null | string;
   previous: null | string;
 };
@@ -22,4 +22,53 @@ export type GamesResponse = {
 export type SelectData = {
   totalCount: number;
   allGames: Game[];
+};
+
+export type GameDetails = Omit<Game, "short_screenshots"> & {
+  description_raw: string;
+  developers: {
+    id: number;
+    name: string;
+  }[];
+  genres: {
+    id: number;
+    name: string;
+  }[];
+  parent_platforms: {
+    platform: {
+      id: number;
+      name: string;
+      slug: string;
+    };
+  }[];
+  platforms: {
+    platform: {
+      id: number;
+      name: string;
+      slug: string;
+    };
+  }[];
+  publishers: {
+    id: number;
+    name: string;
+  }[];
+  website: string;
+  metacritic: number;
+  metacritic_url?: string;
+  playtime: number;
+  esrb_rating?: {
+    id: number;
+    name: string;
+    slug: string;
+  };
+};
+
+export type Trailer = {
+  id: number;
+  name: string;
+  preview: string;
+  data: {
+    480: string;
+    max: string;
+  };
 };

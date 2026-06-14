@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router";
 
-import { useInfiniteSearchGames } from "@/features/search";
+import { useInfiniteSearchGames } from "@/entities/game";
 import { useInfiniteScroll } from "@/shared/hooks";
 import {
   EmptyState,

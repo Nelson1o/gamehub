@@ -1,6 +1,8 @@
 import { memo } from "react";
+import { Link } from "react-router";
 
 import { GameImageSlider } from "@/features/game-slider";
+import { ROUTES } from "@/shared/config";
 import { formatDate } from "@/shared/lib";
 import type { Game } from "@/shared/types";
 
@@ -20,13 +22,18 @@ export const GameCard = memo(({ game }: Props) => {
         image={background_image}
         screenshots={short_screenshots || []}
       />
-      <div className={styles.content}>
-        <h3>{name}</h3>
-        <div className={styles.footer}>
-          <span className={styles.rating}>⭐ {rating.toFixed(1)}</span>
-          <span className={styles.date}>{formatDate(released)}</span>
+      <Link
+        to={ROUTES.GAMES_DETAILS.replace(":id", String(game.id))}
+        className={styles.link}
+      >
+        <div className={styles.content}>
+          <h3>{name}</h3>
+          <div className={styles.footer}>
+            <span className={styles.rating}>⭐ {rating.toFixed(1)}</span>
+            <span className={styles.date}>{formatDate(released)}</span>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 });
