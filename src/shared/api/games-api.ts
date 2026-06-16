@@ -51,4 +51,16 @@ export const gamesApi = {
 
     return res.data.results;
   },
+
+  getPopularGames: async (ordering: string = "-rating", page: number = 1) => {
+    const res = await api.get<GamesResponse<Game>>("/games", {
+      params: {
+        ordering,
+        page,
+        page_size: PAGE_SIZE,
+      },
+    });
+
+    return res.data;
+  },
 };
