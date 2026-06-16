@@ -1,6 +1,7 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
 
 import { GamePage } from "@/pages/game";
+import { GamesPage } from "@/pages/games-page";
 import { SearchPage } from "@/pages/search-page";
 import { ROUTES } from "@/shared/config";
 
@@ -13,15 +14,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div>HOME PAGE</div>,
+        element: <Navigate replace to={ROUTES.GAMES} />,
+      },
+      {
+        path: ROUTES.GAMES,
+        element: <GamesPage />,
       },
       {
         path: ROUTES.SEARCH,
         element: <SearchPage />,
-      },
-      {
-        path: ROUTES.GAMES,
-        element: <div>GAMES</div>,
       },
       {
         path: ROUTES.GAMES_DETAILS,
