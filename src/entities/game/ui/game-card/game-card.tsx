@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Link } from "react-router";
 
+import { FavoriteButton } from "@/features/favorites";
 import { GameImageSlider } from "@/features/game-slider";
 import { ROUTES } from "@/shared/config";
 import { formatDate } from "@/shared/lib";
@@ -22,6 +23,7 @@ export const GameCard = memo(({ game }: Props) => {
         image={background_image}
         screenshots={short_screenshots || []}
       />
+      <FavoriteButton game={game} />
       <Link
         to={ROUTES.GAMES_DETAILS.replace(":id", String(game.id))}
         className={styles.link}
