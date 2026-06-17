@@ -1,8 +1,9 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
 
+import { FavoritesPage } from "@/pages/favorites";
 import { GamePage } from "@/pages/game";
-import { GamesPage } from "@/pages/games-page";
-import { SearchPage } from "@/pages/search-page";
+import { GamesPage } from "@/pages/games";
+import { SearchPage } from "@/pages/search";
 import { ROUTES } from "@/shared/config";
 
 import { Layout } from "../layout";
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: ROUTES.FAVORITES,
-        element: <div>FAVORITES</div>,
+        element: <FavoritesPage />,
       },
     ],
   },
