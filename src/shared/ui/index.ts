@@ -1,4 +1,5 @@
 export * from "./bar-pagination";
+export * from "./dropdown";
 export * from "./empty-state";
 export * from "./error-fallback";
 export * from "./game-page-skeleton";

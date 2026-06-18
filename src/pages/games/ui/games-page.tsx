@@ -1,6 +1,8 @@
 import { useInfinitePopularGames } from "@/entities/game";
-import { useInfiniteScroll } from "@/shared/hooks";
+import { SORT_OPTIONS } from "@/shared/config";
+import { useInfiniteScroll, useSortParams } from "@/shared/hooks";
 import {
+  DropDown,
   EmptyState,
   ErrorFallback,
   SearchHeader,
@@ -11,6 +13,8 @@ import { GamesList } from "@/widgets/games-list";
 import styles from "./styles.module.scss";
 
 export const GamesPage = () => {
+  const { sortType, setSortType } = useSortParams("-rating");
+
   const {
     data: games,
     isPending,
@@ -19,7 +23,7 @@ export const GamesPage = () => {
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
-  } = useInfinitePopularGames();
+  } = useInfinitePopularGames(sortType);
 
   const loadMoreRef = useInfiniteScroll({
     hasNextPage,
@@ -42,6 +46,14 @@ export const GamesPage = () => {
   return (
     <section className={styles.wrapper}>
       <SearchHeader count={games.totalCount} />
+      <div className={styles.sortContainer}>
+        <DropDown
+          options={SORT_OPTIONS}
+          value={sortType}
+          onChange={setSortType}
+        />
+      </div>
+
       <GamesList games={games.allGames} />
 
       {hasNextPage && (
