@@ -11,3 +11,6 @@ export const SORT_OPTIONS: Option[] = [
   { value: "name", label: "По названию (А-Я)" },
   { value: "-name", label: "По названию (Я-А)" },
 ] as const;
+
+export const SEARCH_SUGGESTION_HISTORY = "searchSuggestionHistory";
+export const MAX_ITEMS_HISTORY = 5;
