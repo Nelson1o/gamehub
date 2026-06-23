@@ -1,2 +1,2 @@
 export * from "./lib";
-export { SearchInput } from "./ui";
+export * from "./ui";

@@ -1,0 +1,70 @@
+.list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #1f1f1f;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 12px;
+  padding: 6px 0;
+  list-style: none;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  color: #aaa;
+  cursor: default;
+
+  span {
+    cursor: pointer;
+    flex: 1;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.remove {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 50%;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--color-white);
+  }
+}
+
+.clear {
+  padding: 10px 16px;
+  color: var(--color-yellow);
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
