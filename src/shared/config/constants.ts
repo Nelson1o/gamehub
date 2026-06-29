@@ -14,3 +14,4 @@ export const SORT_OPTIONS: Option[] = [
 
 export const SEARCH_SUGGESTION_HISTORY = "searchSuggestionHistory";
 export const MAX_ITEMS_HISTORY = 5;
+export const TOTAL_COUNT_KEY = "total_games_count";

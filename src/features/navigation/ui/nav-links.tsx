@@ -9,7 +9,10 @@ export const NavLinks = () => (
     <ul className={styles.list}>
       {LINKS.map(({ to, label }) => (
         <li key={to}>
-          <NavLink to={to} className={({ isActive }) => (isActive ? "" : "")}>
+          <NavLink
+            to={to}
+            className={({ isActive }) => (isActive ? styles.active : "")}
+          >
             {label}
           </NavLink>
         </li>

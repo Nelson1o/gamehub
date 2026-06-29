@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
 import { FavoritesPage } from "@/pages/favorites";
 import { GamePage } from "@/pages/game";
 import { GamesPage } from "@/pages/games";
+import { RandomPage } from "@/pages/random";
 import { SearchPage } from "@/pages/search";
 import { ROUTES } from "@/shared/config";
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.FAVORITES,
         element: <FavoritesPage />,
+      },
+      {
+        path: ROUTES.RANDOM,
+        element: <RandomPage />,
       },
     ],
   },
