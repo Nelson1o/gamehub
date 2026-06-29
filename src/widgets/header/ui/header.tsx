@@ -69,13 +69,7 @@ export const Header = () => {
               className={styles.filterButton}
               onClick={() => setIsFiltersOpen((prev) => !prev)}
             >
-              <img
-                src={FilterIcon}
-                alt="filter icon"
-                className={styles.filter}
-                width={25}
-                height={25}
-              />
+              <img src={FilterIcon} alt="filter icon" width={25} height={25} />
             </button>
             <SearchInput />
           </div>
