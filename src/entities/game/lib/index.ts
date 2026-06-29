@@ -5,4 +5,5 @@ export { useGameTrailer } from "./use-game-trailer";
 export { useGenres } from "./use-genres";
 export { usePlatform } from "./use-platform";
 export { useInfinitePopularGames } from "./use-popular-games";
+export { useRandomGame } from "./use-random-game";
 export { useInfiniteSearchGames } from "./use-search-games";

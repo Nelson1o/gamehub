@@ -8,10 +8,16 @@
   letter-spacing: 1.5px;
 
   li {
-    padding-inline: 16px;
+    padding-inline: 8px;
   }
 
-  &:hover {
-    color: var(--color-gray);
+  a {
+    &:hover {
+      color: var(--color-gray);
+    }
+
+    &.active {
+      color: var(--color-yellow);
+    }
   }
 }
