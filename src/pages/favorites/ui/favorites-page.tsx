@@ -1,3 +1,4 @@
+import { ExportFavorites } from "@/features/export-favorites";
 import { usePageTitle } from "@/shared/hooks";
 import { useFavorites } from "@/shared/store";
 import { EmptyState } from "@/shared/ui";
@@ -17,6 +18,7 @@ export const FavoritesPage = () => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <h1 className={styles.title}>Избранное</h1>
+        {favorites.length > 0 && <ExportFavorites />}
       </div>
       <GamesList games={favorites} />
     </div>
