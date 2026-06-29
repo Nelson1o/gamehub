@@ -16,6 +16,14 @@ export const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query") || "";
 
+  const platforms =
+    searchParams.get("platforms")?.split(",").map(Number).filter(Boolean) || [];
+  const genres =
+    searchParams.get("genres")?.split(",").map(Number).filter(Boolean) || [];
+  const metacritic = searchParams.get("metacritic")
+    ? Number(searchParams.get("metacritic"))
+    : undefined;
+
   const {
     data: games,
     isPending,
@@ -24,7 +32,7 @@ export const SearchPage = () => {
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
-  } = useInfiniteSearchGames(query);
+  } = useInfiniteSearchGames(query, { platforms, genres, metacritic });
 
   const loadMoreRef = useInfiniteScroll({
     hasNextPage,
