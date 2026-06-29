@@ -3,18 +3,26 @@ import type {
   Game,
   GameDetails,
   GamesResponse,
+  Genres,
+  Platforms,
   Short_Screenshots,
+  StringSearchFilters,
   Trailer,
 } from "../types";
 import { api } from "./base-api";
 
 export const gamesApi = {
-  searchGames: async (query: string, page: number = 1) => {
+  searchGames: async (
+    query: string,
+    page: number = 1,
+    filters?: StringSearchFilters
+  ) => {
     const res = await api.get<GamesResponse<Game>>("/games", {
       params: {
         search: query,
         page,
         page_size: PAGE_SIZE,
+        ...filters,
       },
     });
 
@@ -60,6 +68,18 @@ export const gamesApi = {
         page_size: PAGE_SIZE,
       },
     });
+
+    return res.data;
+  },
+
+  getPlatforms: async () => {
+    const res = await api.get<GamesResponse<Platforms>>("/platforms");
+
+    return res.data;
+  },
+
+  getGenres: async () => {
+    const res = await api.get<GamesResponse<Genres>>("/genres");
 
     return res.data;
   },

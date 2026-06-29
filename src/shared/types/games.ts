@@ -72,3 +72,25 @@ export type Trailer = {
     max: string;
   };
 };
+
+export type Platforms = {
+  id: number;
+  name: string;
+  slug: string;
+};
+
+export type Genres = {
+  id: number;
+  name: string;
+  slug: string;
+};
+
+export type SearchFilters = {
+  platforms: number[];
+  genres: number[];
+  metacritic?: number;
+};
+
+export type StringSearchFilters = {
+  [K in keyof SearchFilters]: string | undefined;
+};
