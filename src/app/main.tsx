@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import { validateEnv } from "@/shared/config";
 import "@/shared/assets/styles/index.scss";
+import { ThemeProvider } from "@/shared/lib/theme-provider";
 
 import { AppRouter, QueryProvider } from "./providers";
 
@@ -10,8 +11,10 @@ validateEnv();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <QueryProvider>
-      <AppRouter />
-    </QueryProvider>
+    <ThemeProvider>
+      <QueryProvider>
+        <AppRouter />
+      </QueryProvider>
+    </ThemeProvider>
   </StrictMode>
 );

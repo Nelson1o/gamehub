@@ -1,6 +1,5 @@
 .header {
   padding: 22px 0;
-  background-color: var(--color-dark-2);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -36,21 +35,4 @@
   font-size: 28px;
   letter-spacing: 2px;
   user-select: none;
-}
-
-.filterButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  opacity: 0.6;
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 1;
-  }
 }

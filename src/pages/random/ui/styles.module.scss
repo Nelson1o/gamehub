@@ -16,7 +16,7 @@
 .title {
   font-size: 28px;
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -36,7 +36,7 @@
     transform 0.1s;
 
   &:hover:not(:disabled) {
-    background: #ffd700;
+    background: var(--color-yellow-2);
     transform: scale(1.01);
   }
 

@@ -13,6 +13,7 @@
   img {
     filter: brightness(0) invert(1);
     transition: filter 0.2s;
+    opacity: 0.4;
   }
 
   &:hover {
@@ -24,6 +25,7 @@
   .button {
     img {
       filter: brightness(0) invert(0);
+      opacity: 0.4;
     }
   }
 }
