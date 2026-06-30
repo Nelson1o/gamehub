@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 
+import { FilterButton } from "@/features/filter";
 import { NavLinks } from "@/features/navigation";
 import { SearchFilters, SearchInput } from "@/features/search";
-import FilterIcon from "@/shared/assets/icons/filter.svg";
+import { ThemeToggle } from "@/features/theme";
 import { ROUTES } from "@/shared/config";
 import { useIsGamePage } from "@/shared/hooks";
 import type { SearchFilters as SearchFiltersType } from "@/shared/types";
@@ -65,13 +66,11 @@ export const Header = () => {
           </div>
 
           <div className={styles.right}>
-            <button
-              className={styles.filterButton}
-              onClick={() => setIsFiltersOpen((prev) => !prev)}
-            >
-              <img src={FilterIcon} alt="filter icon" width={25} height={25} />
-            </button>
+            <FilterButton
+              toggleOpenFilter={() => setIsFiltersOpen((prev) => !prev)}
+            />
             <SearchInput />
+            <ThemeToggle />
           </div>
         </div>
 

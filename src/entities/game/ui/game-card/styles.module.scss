@@ -2,7 +2,6 @@
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  background: #1f1f1f;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -17,13 +16,13 @@
 
 .content {
   padding: 12px;
-  background: #2a2a2a;
+  background: var(--bg-card);
 
   h3 {
     font-size: 16px;
     font-weight: 600;
     margin: 0 0 8px 0;
-    color: #ffffff;
+    color: var(--text-primary);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -48,7 +47,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  color: #b0b0b0;
+  color: var(--text-placeholder);
 }
 
 .rating {

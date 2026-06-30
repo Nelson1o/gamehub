@@ -1,6 +1,6 @@
 .hero {
   text-align: center;
-  color: var(--color-white);
+  color: var(--text-primary);
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   padding: 120px 20px 60px;
 }
@@ -23,7 +23,7 @@
   background: #6c3;
   padding: 6px 14px;
   border-radius: 40px;
-  color: var(--color-dark-1);
+  color: var(--bg-primary);
   font-weight: 700;
 }
 

@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { useParams } from "react-router";
 
 import { useGameDetails } from "@/entities/game";
 import { usePageTitle } from "@/shared/hooks";
+import { useTheme } from "@/shared/hooks";
 import { EmptyState, ErrorFallback, GamePageSkeleton } from "@/shared/ui";
 import { GameHero } from "@/widgets/game-hero";
 import { GameInfo } from "@/widgets/game-info";
@@ -15,6 +17,19 @@ export const GamePage = () => {
   const params = useParams<{ id: string }>();
   const { data: game, isPending, error, refetch } = useGameDetails(params.id);
   usePageTitle(game?.name || null);
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    const originalTheme = document.documentElement.getAttribute("data-theme");
+    document.documentElement.setAttribute("data-theme", "dark");
+
+    return () => {
+      document.documentElement.setAttribute(
+        "data-theme",
+        originalTheme || theme
+      );
+    };
+  }, [theme]);
 
   if (isPending) {
     return <GamePageSkeleton />;

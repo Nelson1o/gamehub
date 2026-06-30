@@ -5,7 +5,7 @@
 .title {
   font-size: 24px;
   margin-bottom: 20px;
-  color: var(--color-white);
+  color: var(--text-primary);
 }
 
 .loadMore {
@@ -26,7 +26,7 @@
   transition: background 0.2s;
 
   &:hover:not(:disabled) {
-    background: #ffd700;
+    background: var(--color-yellow-2);
   }
 
   &:disabled {
