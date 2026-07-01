@@ -3,9 +3,8 @@ import { createRoot } from "react-dom/client";
 
 import { validateEnv } from "@/shared/config";
 import "@/shared/assets/styles/index.scss";
-import { ThemeProvider } from "@/shared/lib/theme-provider";
 
-import { AppRouter, QueryProvider } from "./providers";
+import { AppRouter, QueryProvider, ThemeProvider } from "./providers";
 
 validateEnv();
 
