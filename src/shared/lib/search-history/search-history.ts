@@ -1,4 +1,4 @@
-import { MAX_ITEMS_HISTORY, SEARCH_SUGGESTION_HISTORY } from "../config";
+import { MAX_ITEMS_HISTORY, SEARCH_SUGGESTION_HISTORY } from "../../config";
 
 export const getSearchHistory = (): string[] => {
   try {
