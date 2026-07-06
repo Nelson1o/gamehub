@@ -26,15 +26,16 @@ export const GameSeries = ({ gameId }: Props) => {
       <GamesList games={seriesGames} />
 
       {hasNextPage && (
-        <div className={styles.loadMore}>
+        <footer className={styles.loadMore}>
           <button
             onClick={() => fetchNextPage()}
             disabled={isFetchingNextPage}
             className={styles.loadMoreButton}
+            aria-busy={isFetchingNextPage}
           >
             {isFetchingNextPage ? "Загрузка..." : "Загрузить ещё"}
           </button>
-        </div>
+        </footer>
       )}
     </section>
   );

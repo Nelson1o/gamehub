@@ -11,9 +11,15 @@ export const SkeletonGrid = ({ count = 20, columns = 4 }: Props) => {
   } as React.CSSProperties;
 
   return (
-    <div className={styles.grid} style={gridStyle}>
+    <div
+      className={styles.grid}
+      style={gridStyle}
+      role="status"
+      aria-label="Загрузка игр"
+      aria-busy="true"
+    >
       {Array.from({ length: count }).map((_, i) => (
-        <div key={i} className={styles.card}>
+        <div key={i} className={styles.card} aria-hidden="true">
           <div className={styles.image}></div>
           <div className={styles.title}></div>
           <div className={styles.rating}></div>

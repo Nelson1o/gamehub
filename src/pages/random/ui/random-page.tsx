@@ -11,31 +11,36 @@ export const RandomPage = () => {
     refetch();
   };
 
+  if (error) {
+    return (
+      <p className={styles.error} role="alert">
+        Не удалось загрузить игру. Попробуйте снова.
+      </p>
+    );
+  }
+
   return (
-    <div className={styles.wrapper}>
+    <section className={styles.wrapper} aria-labelledby="random-heading">
       <div className={styles.header}>
-        <h1 className={styles.title}>Случайная игра</h1>
+        <h1 id="random-heading" className={styles.title}>
+          Случайная игра
+        </h1>
       </div>
 
       <button
         className={styles.button}
         onClick={handleRandomGame}
         disabled={isFetching}
+        aria-busy={isFetching}
       >
-        {isFetching ? "Поиск" : "Случайная игра"}
+        {isFetching ? "Ищем..." : "Случайная игра"}
       </button>
-
-      {error && (
-        <p className={styles.error}>
-          Не удалось загрузить игру. Попробуйте снова.
-        </p>
-      )}
 
       {data && (
         <div className={styles.card}>
           <GameCard game={data} />
         </div>
       )}
-    </div>
+    </section>
   );
 };

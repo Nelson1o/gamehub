@@ -22,21 +22,26 @@ export const GameTrailer = ({ gameId }: Props) => {
   const isMp4 = embedUrl === videoUrl && videoUrl.endsWith(".mp4");
 
   return (
-    <div className={styles.trailer}>
+    <section className={styles.trailer}>
       <h2 className={styles.title}>Трейлер</h2>
-      <div className={styles.videoWrapper}>
+      <div
+        className={styles.videoWrapper}
+        aria-label={`Трейлер: ${trailer.name}`}
+      >
         {isMp4 ? (
           <video
             controls
             className={styles.video}
             src={embedUrl}
             poster={trailer.preview || undefined}
+            aria-label={`Трейлер: ${trailer.name}`}
           >
             Ваш браузер не поддерживает видео.
           </video>
         ) : (
           <iframe
             allowFullScreen
+            loading="lazy"
             src={embedUrl}
             title={trailer.name}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -44,6 +49,6 @@ export const GameTrailer = ({ gameId }: Props) => {
           />
         )}
       </div>
-    </div>
+    </section>
   );
 };

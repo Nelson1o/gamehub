@@ -2,9 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import { validateEnv } from "@/shared/config";
-import "@/shared/assets/styles/index.scss";
 
 import { AppRouter, QueryProvider, ThemeProvider } from "./providers";
+
+import "@/shared/assets/styles/index.scss";
 
 validateEnv();
 

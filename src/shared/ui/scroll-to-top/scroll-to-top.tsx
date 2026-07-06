@@ -22,7 +22,7 @@ export const ScrollToTop = () => {
 
   return (
     <button aria-label="Наверх" className={styles.button} onClick={scrollToTop}>
-      ↑
+      <span aria-hidden="true">↑</span>
     </button>
   );
 };

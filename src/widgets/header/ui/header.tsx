@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 import { FilterButton } from "@/features/filter";
 import { NavLinks } from "@/features/navigation";
@@ -12,6 +12,7 @@ import type { SearchFilters as SearchFiltersType } from "@/shared/types";
 import styles from "./styles.module.scss";
 
 export const Header = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const isGamePage = useIsGamePage();
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
@@ -58,18 +59,30 @@ export const Header = () => {
       <div className="container">
         <div className={styles.wrapper}>
           <div className={styles.left}>
-            <h1 className={styles.logo}>
-              <Link to={ROUTES.HOME}>GameHub</Link>
-            </h1>
+            <div className={styles.logo}>
+              <Link
+                to={ROUTES.HOME}
+                className={styles.logo}
+                aria-label="GameHub — на главную"
+              >
+                <span aria-hidden="true">GameHub</span>
+              </Link>
+            </div>
 
             <NavLinks />
           </div>
 
           <div className={styles.right}>
             <FilterButton
+              aria-expanded={isFiltersOpen}
+              aria-controls="search-filters-panel"
               toggleOpenFilter={() => setIsFiltersOpen((prev) => !prev)}
             />
-            <SearchInput />
+
+            <form role="search">
+              <SearchInput />
+            </form>
+
             <ThemeToggle />
           </div>
         </div>

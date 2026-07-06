@@ -44,7 +44,7 @@ export const GamesPage = () => {
   }
 
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} aria-labelledby="games-heading">
       <SearchHeader count={games.totalCount} />
       <div className={styles.sortContainer}>
         <DropDown
@@ -58,7 +58,13 @@ export const GamesPage = () => {
 
       {hasNextPage && (
         <div ref={loadMoreRef} className={styles.loadMore}>
-          {isFetchingNextPage && <div className={styles.spinner} />}
+          {isFetchingNextPage && (
+            <div
+              className={styles.spinner}
+              role="status"
+              aria-label="Загрузка дополнительных игр"
+            />
+          )}
         </div>
       )}
     </section>

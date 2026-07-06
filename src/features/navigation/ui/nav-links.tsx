@@ -5,7 +5,7 @@ import { LINKS } from "@/shared/config/routes";
 import styles from "./styles.module.scss";
 
 export const NavLinks = () => (
-  <nav>
+  <nav aria-label="Главная навигация">
     <ul className={styles.list}>
       {LINKS.map(({ to, label }) => (
         <li key={to}>

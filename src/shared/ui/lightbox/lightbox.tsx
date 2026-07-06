@@ -31,7 +31,13 @@ export const LightBox = ({
   if (!isOpen || !currentImage) return null;
 
   return createPortal(
-    <div className={styles.modal} onClick={onClose}>
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Просмотр изображений"
+      className={styles.modal}
+      onClick={onClose}
+    >
       <div className={styles.modalHeader}>
         <button
           aria-label="Закрыть"
@@ -77,7 +83,7 @@ export const LightBox = ({
 
         <img
           src={currentImage.image}
-          alt={`Full size ${selectedIndex ? selectedIndex + 1 : images.length}`}
+          alt={`Image ${selectedIndex ? selectedIndex + 1 : images.length}`}
           className={styles.fullImage}
         />
 
@@ -104,7 +110,11 @@ export const LightBox = ({
       </div>
 
       <div className={styles.thumbnails}>
-        <div className={styles.thumbnailList} ref={thumbnailListRef}>
+        <div
+          ref={thumbnailListRef}
+          aria-label="Миниатюры"
+          className={styles.thumbnailList}
+        >
           {images.map((image, index) => (
             <div
               onClick={(e) => {
@@ -112,6 +122,7 @@ export const LightBox = ({
                 onNavigate(index);
               }}
               key={image.id}
+              aria-label={`Перейти к изображению ${index + 1}`}
               className={`${styles.thumbnailItem} ${index === selectedIndex ? styles.activeThumbnail : ""}`}
             >
               <img

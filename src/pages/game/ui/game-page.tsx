@@ -44,20 +44,21 @@ export const GamePage = () => {
   }
 
   return (
-    <div className={styles.page}>
+    <article className={styles.page}>
       <div
         className={styles.background}
         style={{ backgroundImage: `url(${game.background_image})` }}
+        aria-hidden="true"
       />
       <div className={styles.wrapper}>
         <GameHero game={game} />
-        <div className={styles.content}>
+        <div className={styles.content} aria-live="polite">
           <GameInfo game={game} />
           <GameTrailer gameId={game.id} />
           <GameScreenshots gameId={game.id} />
           <GameSeries gameId={game.id} />
         </div>
       </div>
-    </div>
+    </article>
   );
 };

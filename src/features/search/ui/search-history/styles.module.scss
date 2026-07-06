@@ -68,3 +68,15 @@
     background: var(--bg-secondary-hover);
   }
 }
+
+.clearButton {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  text-align: center;
+}

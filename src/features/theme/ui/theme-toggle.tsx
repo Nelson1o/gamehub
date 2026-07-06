@@ -15,9 +15,10 @@ export const ThemeToggle = () => {
 
   return (
     <button
+      aria-label="Переключить тему"
+      aria-pressed={theme === "dark"}
       className={styles.button}
       onClick={toggleTheme}
-      aria-label="Переключить тему"
     >
       {theme === "dark" ? "☀️" : "🌙"}
     </button>

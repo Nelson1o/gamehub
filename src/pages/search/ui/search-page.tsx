@@ -54,12 +54,22 @@ export const SearchPage = () => {
 
   return (
     <section className={styles.wrapper}>
-      <SearchHeader query={query} count={games.totalCount} />
+      <SearchHeader
+        query={query}
+        count={games.totalCount}
+        aria-labelledby="search-heading"
+      />
       <GamesList games={games.allGames} />
 
       {hasNextPage && (
         <div ref={loadMoreRef} className={styles.loadMore}>
-          {isFetchingNextPage && <div className={styles.spinner} />}
+          {isFetchingNextPage && (
+            <div
+              className={styles.spinner}
+              role="status"
+              aria-label="Загрузка дополнительных игр"
+            />
+          )}
         </div>
       )}
     </section>

@@ -110,10 +110,17 @@ export const SearchInput = () => {
       <img
         src={SearchIcon}
         alt="search icon"
-        className={styles.search}
+        role="button"
+        tabIndex={0}
+        className={styles.searchButton}
         onClick={() => handleSearch()}
       />
       <input
+        aria-label="Поиск игр"
+        role="combobox"
+        aria-expanded={isHistoryOpen}
+        aria-controls="search-history-list"
+        aria-autocomplete="list"
         ref={inputRef}
         type="text"
         name="search"
@@ -133,11 +140,12 @@ export const SearchInput = () => {
             handleClear();
           }}
           className={styles.clear}
+          aria-label="Очистить поле поиска"
         >
-          ✕
+          <span aria-hidden="true">✕</span>
         </button>
       )}
-      <div className={styles.wrap}>
+      <div className={styles.wrap} aria-hidden="true">
         <div className={styles.hotkey}>ctrl</div>
         <span>+</span>
         <div className={styles.hotkey}>k</div>

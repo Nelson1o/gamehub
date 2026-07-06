@@ -16,7 +16,7 @@ export const SearchHistory = ({
   if (history.length === 0) return null;
 
   return (
-    <ul className={styles.list}>
+    <ul className={styles.list} aria-label="История поиска">
       {history.map((item) => (
         <li key={item} className={styles.item}>
           <span onClick={() => onSelect(item)}>{item}</span>
@@ -25,14 +25,17 @@ export const SearchHistory = ({
               e.stopPropagation();
               onRemove(item);
             }}
+            aria-label="Удалить запрос"
             className={styles.remove}
           >
-            ✕
+            <span aria-hidden="true">✕</span>
           </button>
         </li>
       ))}
-      <li className={styles.clear} onClick={onClear}>
-        Очистить историю
+      <li className={styles.clear}>
+        <button className={styles.clearButton} onClick={onClear}>
+          Очистить историю
+        </button>
       </li>
     </ul>
   );
