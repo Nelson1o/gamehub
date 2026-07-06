@@ -37,14 +37,14 @@
 .wrapper:focus-within {
   width: 400px;
   border-color: var(--border-color-active);
-  background: var(--bg-secondary-hover);
+  background: var(--bg-secondary);
 
   .wrap {
     display: none;
   }
 }
 
-.search {
+.searchButton {
   width: 25px;
   height: 25px;
   object-fit: contain;

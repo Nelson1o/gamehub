@@ -10,7 +10,7 @@ type Props = {
 
 export const GameHero = ({ game }: Props) => (
   <div className={styles.hero}>
-    <h2 className={styles.title}>{game.name}</h2>
+    <h1 className={styles.title}>{game.name}</h1>
     <div className={styles.meta}>
       {game.metacritic > 0 && (
         <span className={styles.metacritic}>

@@ -17,7 +17,7 @@ export const GameCard = memo(({ game }: Props) => {
   const { name, background_image, rating, released, short_screenshots } = game;
 
   return (
-    <div className={styles.card}>
+    <article aria-labelledby={`game-title-${game.id}`} className={styles.card}>
       <GameImageSlider
         alt={name}
         image={background_image}
@@ -25,17 +25,18 @@ export const GameCard = memo(({ game }: Props) => {
       />
       <FavoriteButton game={game} />
       <Link
+        aria-label={`Перейти к странице игры ${name}`}
         to={ROUTES.GAMES_DETAILS.replace(":id", String(game.id))}
         className={styles.link}
       >
         <div className={styles.content}>
-          <h3>{name}</h3>
+          <h3 id={`game-title-${game.id}`}>{name}</h3>
           <div className={styles.footer}>
             <span className={styles.rating}>⭐ {rating.toFixed(1)}</span>
             <span className={styles.date}>{formatDate(released)}</span>
           </div>
         </div>
       </Link>
-    </div>
+    </article>
   );
 });

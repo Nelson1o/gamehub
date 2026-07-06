@@ -51,12 +51,16 @@ export const GameScreenshots = ({ gameId }: Props) => {
           </div>
         ))}
         {showMore && (
-          <div className={styles.moreButton} onClick={handleMoreClick}>
+          <button
+            className={styles.moreButton}
+            onClick={handleMoreClick}
+            aria-label={`Показать ещё ${remainingCount} скриншотов`}
+          >
             <div className={styles.moreContent}>
               <span className={styles.moreIcon}>🎮</span>
               <span className={styles.moreText}>+{remainingCount}</span>
             </div>
-          </div>
+          </button>
         )}
       </div>
       <LightBox

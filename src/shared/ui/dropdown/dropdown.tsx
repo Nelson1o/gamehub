@@ -39,14 +39,24 @@ export const DropDown = ({
 
   return (
     <div ref={containerRef} className={`${styles.dropdown} ${className || ""}`}>
-      <button className={styles.trigger} onClick={() => setIsOpen(!isOpen)}>
+      <button
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+        aria-controls="dropdown-menu"
+        className={styles.trigger}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span>{selected?.label || placeholder}</span>
         <span className={`${styles.arrow} ${isOpen ? styles.open : ""}`}>
           ▼
         </span>
       </button>
       {isOpen && (
-        <ul className={`${styles.menu} ${isOpen ? styles.menuOpen : ""}`}>
+        <ul
+          id="dropdown-menu"
+          role="listbox"
+          className={`${styles.menu} ${isOpen ? styles.menuOpen : ""}`}
+        >
           {options.map((opt) => (
             <li
               onClick={() => {
@@ -54,6 +64,8 @@ export const DropDown = ({
                 setIsOpen(false);
               }}
               key={opt.value}
+              role="option"
+              aria-selected={opt.value === value}
               className={`${styles.item} ${opt.value === value ? styles.active : ""}`}
             >
               {opt.label}

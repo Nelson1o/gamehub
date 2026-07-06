@@ -11,13 +11,14 @@ export const PlatformIcons = ({ parent_platforms }: Props) => {
   }
 
   return (
-    <div className={styles.platforms}>
+    <div className={styles.platforms} aria-label="Платформы">
       {parent_platforms.map(({ platform: { id, name, slug } }) => (
         <span key={id} className={styles.platformIcon} title={name}>
           <img
             src={getPlatformIcon(slug)}
             alt={`${slug} icon`}
             className={styles.icon}
+            aria-hidden="true"
           />
         </span>
       ))}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useGenres, usePlatform } from "@/entities/game";
 import type { SearchFilters as SearchFiltersType } from "@/shared/types";
@@ -63,15 +63,36 @@ export const SearchFilters = ({
     setMetacriticMin(undefined);
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
     <div className={styles.overlay} onClick={handleClose}>
-      <div className={styles.panel} onClick={(e) => e.stopPropagation()}>
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="filters-heading"
+        className={styles.panel}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className={styles.header}>
-          <h3>Фильтры</h3>
-          <button className={styles.close} onClick={handleClose}>
-            ✕
+          <h3 id="filters-heading">Фильтры</h3>
+          <button
+            aria-label="Закрыть фильтры"
+            className={styles.close}
+            onClick={handleClose}
+          >
+            <span aria-hidden="true">✕</span>
           </button>
         </div>
 
@@ -80,13 +101,17 @@ export const SearchFilters = ({
             <label className={styles.groupLabel}>Платформы</label>
             {platformsLoading ? (
               <div className={styles.loader}>
-                <div className={styles.spinner}></div>
+                <div
+                  aria-label="Загрузка доступных платформ"
+                  className={styles.spinner}
+                ></div>
               </div>
             ) : (
               <div className={styles.chips}>
                 {platforms?.map((p) => (
                   <button
                     key={p.id}
+                    aria-pressed={selectedPlatforms.includes(p.id)}
                     className={`${styles.chip} ${selectedPlatforms.includes(p.id) ? styles.active : ""}`}
                     onClick={() => handlePlatformToggle(p.id)}
                   >
@@ -101,13 +126,17 @@ export const SearchFilters = ({
             <label className={styles.groupLabel}>Жанры</label>
             {genresLoading ? (
               <div className={styles.loader}>
-                <div className={styles.spinner}></div>
+                <div
+                  aria-label="Загрузка доступных жанров"
+                  className={styles.spinner}
+                ></div>
               </div>
             ) : (
               <div className={styles.chips}>
                 {genres?.map((g) => (
                   <button
                     key={g.id}
+                    aria-pressed={selectedPlatforms.includes(g.id)}
                     className={`${styles.chip} ${selectedGenres.includes(g.id) ? styles.active : ""}`}
                     onClick={() => handleGenreToggle(g.id)}
                   >
@@ -119,11 +148,15 @@ export const SearchFilters = ({
           </div>
 
           <div className={styles.group}>
-            <label className={styles.groupLabel}>Metacritic (от)</label>
+            <label htmlFor="metacritic-input" className={styles.groupLabel}>
+              Metacritic (от)
+            </label>
             <input
               onChange={(e) =>
                 setMetacriticMin(Number(e.target.value) || undefined)
               }
+              id="metacritic-input"
+              aria-label="Минимальный рейтинг Metacritic"
               type="text"
               className={styles.rangeInput}
               value={metacriticMin || ""}

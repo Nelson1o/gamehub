@@ -3,17 +3,24 @@ import { Outlet, ScrollRestoration } from "react-router";
 import { ScrollToTop } from "@/shared/ui";
 import { Header } from "@/widgets/header";
 
+import styles from "./styles.module.scss";
+
 export const Layout = () => {
   return (
-    <div>
+    <>
+      <a href="#main-content" className={styles.skipLink}>
+        Перейти к основному контенту
+      </a>
       <Header />
+
       <div className="container">
-        <main>
+        <main id="main-content">
           <Outlet />
-          <ScrollToTop />
         </main>
       </div>
+
+      <ScrollToTop />
       <ScrollRestoration />
-    </div>
+    </>
   );
 };

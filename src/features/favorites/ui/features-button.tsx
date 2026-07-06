@@ -22,6 +22,7 @@ export const FavoriteButton = ({ game, className }: Props) => {
 
   return (
     <button
+      aria-label={isFav ? "Удалить из избранного" : "Добавить в избранное"}
       className={`${styles.button} ${isFav ? styles.active : ""} ${className || ""}`}
       onClick={handleFavoriteClick}
     >

@@ -27,8 +27,13 @@ export const ExportFavorites = () => {
   };
 
   return (
-    <button className={styles.button} onClick={handleExport}>
+    <button
+      aria-label="Экспортировать избранные игры в JSON"
+      className={styles.button}
+      onClick={handleExport}
+    >
       <img
+        aria-hidden="true"
         src={DownloadIcon}
         alt="download icon"
         className={styles.icon}

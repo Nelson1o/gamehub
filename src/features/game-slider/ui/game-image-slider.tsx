@@ -28,13 +28,20 @@ export const GameImageSlider = ({ alt, image, screenshots }: Props) => {
 
   return (
     <div
+      aria-label="Слайдер скриншотов"
       className={styles.slider}
       ref={containerRef}
       onMouseEnter={hasScreenshots ? handleMouseEnter : undefined}
       onMouseMove={hasScreenshots ? handleMouseMove : undefined}
       onMouseLeave={hasScreenshots ? handleMouseLeave : undefined}
     >
-      <img src={imageUrl} alt={alt} loading="lazy" />
+      {imageUrl ? (
+        <img src={imageUrl} alt={alt} loading="lazy" />
+      ) : (
+        <div className={styles.placeholder} aria-label={alt}>
+          <span className={styles.placeholderText}>{alt}</span>
+        </div>
+      )}
       {screenshots.length > 1 && activeIndex !== null && (
         <BarPagination
           total={screenshots.length}

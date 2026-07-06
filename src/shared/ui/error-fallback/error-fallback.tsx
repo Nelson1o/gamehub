@@ -8,9 +8,15 @@ type Props = {
 
 export const ErrorFallback = ({ error, center, onRetry }: Props) => {
   return (
-    <div className={`${styles.wrapper} ${center && styles.center}`}>
+    <div
+      className={`${styles.wrapper} ${center && styles.center}`}
+      role="alert"
+      aria-live="assertive"
+    >
       <div className={styles.container}>
-        <div className={styles.icon}>😵‍💫</div>
+        <div className={styles.icon} aria-hidden="true">
+          😵‍💫
+        </div>
         <h2 className={styles.title}>Не удалось загрузить игры</h2>
         <p className={styles.message}>
           {error?.message === "Network Error"

@@ -15,12 +15,12 @@ export const FavoritesPage = () => {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.header}>
+    <section className={styles.wrapper}>
+      <header className={styles.header}>
         <h1 className={styles.title}>Избранное</h1>
         {favorites.length > 0 && <ExportFavorites />}
-      </div>
+      </header>
       <GamesList games={favorites} />
-    </div>
+    </section>
   );
 };

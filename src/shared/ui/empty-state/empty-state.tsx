@@ -17,8 +17,10 @@ export const EmptyState = ({ query, hint }: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <div className={styles.icon}>🔍</div>
-        <p>{message}</p>
+        <div className={styles.icon} aria-hidden="true">
+          🔍
+        </div>
+        <h2>{message}</h2>
         {hint && (
           <p className={styles.hint}>Попробуйте изменить запрос или фильтр</p>
         )}

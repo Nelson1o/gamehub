@@ -8,7 +8,11 @@ type Props = {
 
 export const FilterButton = ({ toggleOpenFilter }: Props) => {
   return (
-    <button className={styles.button} onClick={toggleOpenFilter}>
+    <button
+      aria-label="Открыть фильтры"
+      className={styles.button}
+      onClick={toggleOpenFilter}
+    >
       <img src={FilterIcon} alt="filter icon" width={25} height={25} />
     </button>
   );

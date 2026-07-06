@@ -12,15 +12,15 @@ export const GameInfo = ({ game }: Props) => {
   const { age, label } = getAgeRatingInfo(game.esrb_rating?.name);
 
   return (
-    <div className={styles.info}>
+    <section className={styles.info}>
       <div className={styles.description}>
         <h2>Описание</h2>
         <div dangerouslySetInnerHTML={{ __html: game.description_raw }} />
       </div>
 
       <div className={styles.details}>
-        <h2>Детали</h2>
-        <ul>
+        <h2 id="details-heading">Детали</h2>
+        <ul aria-labelledby="details-heading">
           <li>
             <strong>Издатели: </strong>
             {game.publishers.map((p) => p.name).join(", ")}
@@ -52,14 +52,21 @@ export const GameInfo = ({ game }: Props) => {
           {game.website && (
             <li>
               <strong>Сайт: </strong>
-              <a href={game.website} target="_blank" rel="noopener noreferrer">
+              <a
+                href={game.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Официальный сайт игры"
+              >
                 {gameSiteUrl !== null && gameSiteUrl.hostname}
-                <span className={styles.externalIcon}>↗</span>
+                <span className={styles.externalIcon} aria-hidden="true">
+                  ↗
+                </span>
               </a>
             </li>
           )}
         </ul>
       </div>
-    </div>
+    </section>
   );
 };
