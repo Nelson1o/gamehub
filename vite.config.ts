@@ -23,4 +23,28 @@ export default defineConfig({
       exclude: ["node_modules", "src/setupTests.ts"],
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (
+              id.includes("react") ||
+              id.includes("react-dom") ||
+              id.includes("react-router")
+            ) {
+              return "vendor-react";
+            }
+            if (id.includes("@tanstack")) {
+              return "vendor-query";
+            }
+            if (id.includes("axios")) {
+              return "vendor-axios";
+            }
+            return "vendor";
+          }
+        },
+      },
+    },
+  },
 });
